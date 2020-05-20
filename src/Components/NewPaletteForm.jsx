@@ -11,7 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
-import DraggableColorBox from './DraggableColorBox';
+import DraggableColorList from './DraggableColorList';
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { ChromePicker } from "react-color";
 
@@ -156,6 +156,23 @@ class NewPaletteForm extends Component {
         })
     }
 
+
+    // onSortEnd = ({oldIndex, newIndex}) => {
+    //     const arrayMoveMutate = (array, from, to) => {
+    //         const startIndex = to < 0 ? array.length + to : to;
+    //         const item = array.splice(from, 1)[0];
+    //         return array.splice(startIndex, 0, item);
+    //     };
+    //     const arrayMove = (array, from, to) => {
+    //         array = array.slice();
+    //         arrayMoveMutate(array, from, to);
+    //         return array;
+    //     };
+    //     this.setState(colors => ({
+    //         colors: arrayMove((colors, oldIndex, newIndex))
+    //     }))
+    // }
+
     render() {
         const { classes } = this.props
         const { open } = this.state
@@ -259,14 +276,12 @@ class NewPaletteForm extends Component {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                    {this.state.colors.map(color => (
-                        <DraggableColorBox 
-                            color={color.color} 
-                            name={color.name}
-                            key={color.name}
-                            handleClick={() => this.removeColor(color.name)}
-                        />
-                    ))}
+                <DraggableColorList 
+                    colors={this.state.colors} 
+                    removeColor={this.removeColor}
+                    axis="xy"
+                    // onSortEnd={this.onSortEnd}
+                />
             </main>
         </div>
         );
