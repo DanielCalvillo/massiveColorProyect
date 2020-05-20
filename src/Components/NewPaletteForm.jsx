@@ -149,18 +149,6 @@ class NewPaletteForm extends Component {
         this.props.history.push("/");       
     }
 
-    handleSubmit() {
-        let newName = "New Test Palette";
-        const NewPalette = {
-            paletteName: newName,
-            id: newName.toLowerCase().replace(/ /g, "-"), 
-            colors: this.state.colors
-        }
-        this.props.savePalette(NewPalette);
-        //redirect to de main page using history
-        this.props.history.push("/");       
-    }
-
     render() {
         const { classes } = this.props
         const { open } = this.state
