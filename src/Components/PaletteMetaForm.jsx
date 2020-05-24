@@ -10,10 +10,6 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import {Picker} from 'emoji-mart'
 import 'emoji-mart/css/emoji-mart.css';
 
-const styles = {
-
-}
-
 class PaletteMetaForm extends Component {
     constructor(props){
         super(props)
@@ -123,4 +119,4 @@ class PaletteMetaForm extends Component {
 
   }
 
-export default withStyles(styles)(PaletteMetaForm);
+export default PaletteMetaForm;
