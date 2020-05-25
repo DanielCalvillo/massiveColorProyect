@@ -48,7 +48,7 @@ export default {
         backgroundColor: "#eb3d30",
         width: "20px",
         height: "20px",
-        position: "absulute",
+        position: "absolute",
         right: "0px",
         top: "0px",
         padding: "10px",
